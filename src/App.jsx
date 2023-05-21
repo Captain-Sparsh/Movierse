@@ -25,12 +25,19 @@ function App() {
   );
 
   useEffect(()=>{
-    apitesting();
+    fetchApiConfig();
   },[]);
 
-  const apitesting = ()=>{
-    fetchDataFromApi("/movie/popular").then((res)=>{
-      dispatch(getApiConfiguration(res));
+  const fetchApiConfig = ()=>{
+    fetchDataFromApi("/configuration").then((res)=>{
+      
+      const url = {
+        backdrop: res.images.secure_base_url + "original",
+        poster: res.images.secure_base_url + "original",
+        profile: res.images.secure_base_url + "original"
+      };
+
+      dispatch(getApiConfiguration(url));
     });
   };
 

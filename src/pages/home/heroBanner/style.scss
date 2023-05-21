@@ -1,0 +1,126 @@
+@import "../../../mixin.scss";
+
+.heroBanner{
+    width:100%;
+    height: 450px;
+    background-color: var(--black);
+    display: flex;
+    align-items: center;
+    position: relative;
+    @include md{
+        height: 700px;
+    }
+
+    .backdrop-img{
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        opacity: 0.69;
+
+        .lazy-load-image-background{
+
+            width: 100%;
+            height: 100%;
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+
+            }
+        }
+    }
+
+    .opacity-layer{
+        width: 100%;
+        height: 250px;
+        background: linear-gradient(
+            180deg,
+             rgba(4,21,45,0) 0%,
+             #04152d 79.17%
+        );
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+
+
+    .heroBannerContent{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        text-align: center;
+        position: relative;
+        max-width: 800%;
+        margin: 0 auto;
+        .title{
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 10px;
+
+            @include md{
+                margin-bottom: 0;
+                font-size: 100px;
+            }
+        }
+
+        .subtitle{
+
+            font-size: 17px;
+            font-weight: 500;
+            margin-bottom: 30px;
+
+            @include md{
+                margin-bottom: 10;
+                font-size: 26px;
+            }
+        }
+        .input{
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+        input{
+            width: calc(100% - 100px);
+            height: 50px;
+            background-color: #fff;
+            outline: 0;
+            border: 0;
+            border-radius: 30px 0 0 30px;
+            padding: 0 15px;
+            font-size: 14px;
+            @include md{
+                font-size: 22px;
+                width: calc(100% - 150px);
+                height: 55px;
+                padding: 0 35px;
+            }
+        }
+
+        button{
+            font-size: 18px;
+            width: 100px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            outline: 0;
+            border: 0;
+            border-style: double;
+            border-width: 2px;
+            border-color: white;
+            border-radius: 0 15px 15px 0;
+            cursor: pointer;
+            @include md{
+                font-size: 20px;
+                width: 150px; 
+                height: 55px;
+            }
+        }
+    }
+    }
+}
